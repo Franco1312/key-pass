@@ -8,6 +8,8 @@ export interface AuthenticatedRequest extends Request {
     role: string;
     plan: string;
   };
+  body: any;
+  headers: any;
 }
 
 const tokenService = new JwtTokenService();

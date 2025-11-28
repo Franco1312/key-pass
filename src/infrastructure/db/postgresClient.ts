@@ -3,7 +3,7 @@ import { config } from '@infrastructure/config/env';
 
 const pool = new Pool({
   connectionString: config.DATABASE_URL,
-  ssl: config.DATABASE_URL.includes('render.com') ? { rejectUnauthorized: false } : false,
+  ssl: config.DATABASE_URL?.includes('render.com') ? { rejectUnauthorized: false } : false,
 });
 
 export async function query<T extends QueryResultRow = QueryResultRow>(

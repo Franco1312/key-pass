@@ -1,4 +1,4 @@
-import { Router } from 'express';
+import { Router, Request, Response, NextFunction } from 'express';
 import { AuthController } from '@interface/http/controllers/AuthController';
 import { requireAuth } from '@interface/http/middlewares/requireAuth';
 
@@ -37,7 +37,7 @@ export function createAuthRoutes(authController: AuthController): Router {
    *             schema:
    *               $ref: '#/components/schemas/ErrorResponse'
    */
-  router.post('/register', (req, res, next) => authController.register(req, res, next));
+  router.post('/register', (req: Request, res: Response, next: NextFunction) => authController.register(req, res, next));
 
   /**
    * @swagger

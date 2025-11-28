@@ -1,4 +1,4 @@
-import { Router } from 'express';
+import { Router, Request, Response, NextFunction } from 'express';
 import { UserController } from '@interface/http/controllers/UserController';
 import { requireAuth } from '@interface/http/middlewares/requireAuth';
 
@@ -33,7 +33,7 @@ export function createUserRoutes(userController: UserController): Router {
    *             schema:
    *               $ref: '#/components/schemas/ErrorResponse'
    */
-  router.get('/me', requireAuth, (req, res, next) => userController.getCurrentUser(req, res, next));
+  router.get('/me', requireAuth, (req: Request, res: Response, next: NextFunction) => userController.getCurrentUser(req, res, next));
 
   /**
    * @swagger

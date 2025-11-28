@@ -20,5 +20,5 @@ if (!parseResult.success) {
   process.exit(1);
 }
 
-export const config = parseResult.data;
+export const config = parseResult.data as z.infer<typeof envSchema>;
 
